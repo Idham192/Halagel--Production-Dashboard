@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Production Data Entry</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title> Halagel Production Data Entry</title>
+    <!-- Fixed Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         body {
@@ -253,8 +254,9 @@
     </div>
 
     <script>
-        // REPLACE THIS WITH YOUR ACTUAL GOOGLE APPS SCRIPT URL
-        const GOOGLE_SHEET_URL = 'https://script.google.com/macros/s/AKfycbwbT8TRM9uzAWYowcjaZSbtSPMhYhmrFT98Pu_WfTLBdIu3aB8KTJpVwrOHru4RBq90XA/exec';
+        // ⚠️ REPLACE THIS WITH YOUR ACTUAL GOOGLE APPS SCRIPT WEB APP URL ⚠️
+        // Get this from: Deploy → New deployment → Web app → Copy the URL
+        const GOOGLE_SHEET_URL = 'https://script.google.com/macros/s/AKfycbyKaosUANGLPVAclh0_lHVV5FrQUJKjYK2LJ_6X3MYVu12Cs_84VN0bLy0TzG_KMmg/exec';
 
         // Debug logging function
         function debugLog(message, type = 'info') {
@@ -516,35 +518,6 @@
             debugLog(`🌐 Google Apps Script URL: ${GOOGLE_SHEET_URL}`, 'info');
             debugLog('💡 Tip: Click "Test Connection" first to verify your setup', 'info');
             debugLog('🔧 Remember to replace YOUR_SCRIPT_ID with your actual Google Apps Script ID', 'info');
-            
-            // Auto-test connection on load (optional)
-            // testConnection();
-        });
-
-        // Add keyboard shortcut for clearing form (Ctrl+Alt+C)
-        document.addEventListener('keydown', function(e) {
-            if (e.ctrlKey && e.altKey && e.key === 'c') {
-                e.preventDefault();
-                clearForm();
-                debugLog('⌨️ Form cleared via keyboard shortcut (Ctrl+Alt+C)', 'info');
-            }
-        });
-
-        // Add form validation for numbers
-        document.querySelectorAll('input[type="number"]').forEach(input => {
-            input.addEventListener('blur', function() {
-                const value = parseInt(this.value);
-                const min = parseInt(this.min) || 0;
-                const max = parseInt(this.max) || Infinity;
-                
-                if (value < min) {
-                    this.value = min;
-                    debugLog(`⚠️ ${this.name} adjusted to minimum value: ${min}`, 'info');
-                } else if (value > max && max !== Infinity) {
-                    this.value = max;
-                    debugLog(`⚠️ ${this.name} adjusted to maximum value: ${max}`, 'info');
-                }
-            });
         });
     </script>
 </body>
