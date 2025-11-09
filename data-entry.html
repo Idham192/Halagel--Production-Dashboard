@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Halagel Production Data Entry</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .logo-img {
+            filter: brightness(0) invert(1);
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 min-h-screen py-8">
+    
+    <!-- Header with Logo -->
+    <header class="glass-effect shadow-xl mb-8">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-4">
+                    <div class="bg-gradient-to-br from-indigo-600 to-purple-600 p-3 rounded-xl shadow-lg">
+                        <!-- Custom Logo - Base64 Image -->
+                        <img id="companyLogo" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAWIAAACOCAMAAAA8c/IFAAAAqFBMVEVqkhX////9/f1qkRVjjgBeiwBijQBpkhNokApdiQB7nj5fiwD///5biAD8/P38/fuswI3e5NSXrmqKqVfI1rLp7t5xli33+/Gou4zr7uO7zKff5tKiunx/oEdVhgDJ1LSOql5tlSC0xZjW4MeovYb19vF2mjfX38i6yaGctHWUsGbm7dzu8uWFo0/I1rWZtWyKqVHd581LfgDR3b5ukiOzyZV0mDjG165/UlQNAAAX8klEQVR4nO2dCWOiSBbHwarilMOLLCoiCF7RZHZ1d77/N9tXxSFHoWjUpDP+e7p7OiFl8ePx3qtbEF96sITvrsDv1wvxw/VC/HC9ED9cL8QP1wvxw/VzEXe7ltXpdMxM8A/Lsr67VjfopyC2YndyOIxDO+p/bvfa0gkwk6RLifTk33LgLL3B9nMThWv/sJi48Y+n/p2Iu4B1uLY3c03QCfwCmhj+w1gByYkEuSz4uqLgFL8kEZAU7LfT8O/hxP2ZtL8DceyuhuHmL0ehfChTRRaKktN/ygJCBbrwj+TrKL2APQD6t0Jx61Caog2ma3+1+1Gsn4o4HvnrjSerJLFVAQl3FTwDhbkWYgSDaH0Yxc+8uUY9CfGut468AJyBhFMXINwbcEJZYEVTZyJRFzKIhr3vBv1wxPFkGHmKytg+gOlZgd+mDkQY2P779/mORyK2VuuNIxGAq9xgsSiBxP4Ap0td801i7gNqsZyOJ+YD77ZRD0Lc7Y03DnULACcPU5zbl1nsYvxk6khplkDjlgFSWYoBPjsIAvYtrOsq/QYhLJNjqYecRL/zjgcBZ4Fx1qa++5g7btYDEMeLcI+p7bYwXZaBUaiqLh+1+Sayw7G/mkxGu10c1xoalhXHu9H7ZLXyIYOe9gdaoMDPwqOgWUkLK0cKJgTPw9Uz3cadEceHSFMJxpQelzD7IrUpMCqI/OrR69uQZo12cbdYDm3OdTrdpF3XMWkjL/ttlt72TrzrQQoY9b1ANajVg12febQsD8RYJ97zMN8RsbWyl0SHXCxHWcNL32iwWqJKDs2qenkCWyWXf9k6qcO7onP6OWvX89fTvaOrhOUt6JxdK5Kue+HkfnffrHshdtd7icCNnbMghdrtcRCNF1k7rGC58c7trfzhGprQm+1g72mOEwQIKVImBaHg6Cw1bz/YUoeyHq5WPfetZIusvNg9AGnFoElM/VFnRk6jINR4Pny4b74HYmsxVYikgIXWbgixpADeTUlX0SD6KCep1m6y8kN7M1gKOg1vRErDGGtCK0n6fIJD285K2nxm3RYEfsqQAm0+pc7mvYw7nvgAmmaLSdsQwi44CCypOjwsWhz9EypmOPZjjfnLiC2/L+m4yXIRvQndQP1wVYAbvx/Gdt87SqpKmP9sFauaPiLJRCDbUBVnv7HHi/fTR1nuwp4zgwbGan8BIdT1B0bJFsCY5c3iqxya9TXE8XAA3rcpwFDjNZT5ia7lrny7v5QMNc0B0r6Hm/GmH0NfH5b7JQ1ow8DexvYneSfcbmHvJdUAjB2QKE6OFZuQIdHoHx4U/76A2PLn4CG55kdDDdQ62PijTnKtewg3Gk7Qlvh8FTArJP8jU5IKyt50fUh9bWeyYoAZ5NipRw2s4/5DbPlmxIstoW8f95ap9R6zJN9drfsa5BAs+DyxDQ3OlzXrDGm/GU/oi5QR7limSziPFqwCT3v3IpvrNsSurYD/5UQ3eGUhu1e2Hzt6Gbygc0QbBkryIj+TcFYjJLB2nX6cW52TxDmWay1yGl0xOYZ37je6BbHvEcyFxZzvkgVoaxJujyycP4FjG8nGyCwgtmeSwr8Qot/8rg7jasS7CKwU8fpkICfSB+M32oK2NZr+C3VD+Ubh/slTQCvGDTWVTxmBKct3NOUrEa8GhJeggQfAujH3LWhBT5eGfr4N8k0ia8bYpL54F0H7OR57Bm3R1O0AyRLZ3MsrX4O46zsE8zIAaIOpc78rTmzHkGgb5AnArhaSjSmYpklTnN1SJ4YXvlPKqsSrLvg84q2ejLi7lolSTWJZNyFWtXH8Bimczpp4Z/thvk+QYUg4WsRxPInAdml3vapsfCteH5nhVG6Mhknd+XgiYiuUOE+bVpQge+SGS0NqbOL9HMmYNrlPvo6GZ2+8m0z5CT6Cmxs+CXE3xJLMaeRClfeHle2oWDnbr/VjRHsqhHLHBxizFv57qHGzfFnWA/8anu5qMalEylaIx1iqDezQ8XeMpkMb/PPXG8FPU90QaGcQpTze0ByoGvug+UKCQ0u+cYRmVFrJ9FsgPgQ65/nCZzubaNnYwvujRM1F2kefgcKxFXAXWqvswjZmWnhYDAF0UOi8u4h45EEazDPSQPMUzOm//DPFBlHRXxov3iCAvL2cJ89nXvokLF+andzLBcTWlJsHs48WGppHf67k5jvCJLxAeDuLsv/tiG/LWZ7xnUfsY6nJy35Df8Mz1PxS6s7ZnvvFbCPuplEU2eueaJkxxp0WiOM5+a0krxc4EmPaaYblKJY4mmFF0WczWzRFf7a+jNj/EzLdp0oSGsNebxaKpst8xbswc4GxE1xCbG3J7TNwfqnAkKMGXNHMpVY8FU1LjIwVuONwNjqPuCe8TJgnovFTiwEGwx0xK46dWQyIV1lS0YB4bNwyDe0fIIR1bmeyswSqI+PoeZoxG9MuvXf46wziPvnuW/mhosM6Bi998wJqxcZy7qj7WDQ7HXEyGzYjtjTpt7QoHiAkkz7HKA2xYzJHYUPgo+MqfpYZcxDHwe9ptD1AgEbyavMBxgDUpOGuI+5nE2AM0OMmxG6rKZX/ZCEZO1XGMZmLLKPodMAji6b5ZszFBsTuy4QvChgfq4nFZrYQR//ZUPudUn/Rn00aELv4QaswfpWoHVcYW1hyrSEkxNB4Hg7F9Sx32AKH8EuXBYwrrekekdIZXR3aElmKfMRW8Ot6zx4lGe8rDqAnzZIJGG/j42x/ctZlxB5++YjW0qcVxvHUmBnBEs9mSnHYo4R4yh3vfokrJJBxhbEY+xttuY/KkwOKiA9GtvI17cKsj3agLNto6OQs/gDiZibZV2XecCu3yNKFDYWyye+cEunajsrcuzMLqITiGGTyuXLj1FGAZIyqjHkqII7zUEenTrFp6LUpETJiS+vhN3+xDNbzhQMSb8RPYJP46ER4qe2EIYQkciqT/1OILpJJ5tcXlSywriA+LVPn6DTNhhZIF6LhM91hinMl4nleGI6GTB9O7Yakv5NvrSXeneL+x/AknVstL7Spwn3b5CUoFPnh8eOxogd9m6doq6k6Lk5EUbTBGWXFI1lJCginzUsAkGRfhfhA8mqQrOd5Xgt/avqdN4P3ocauWPaWV7m8VmP+i1C9C1kq9boUaplLRkpwZi5lvJirhadZrmNV2SNEcmahMddSkosE0mIxzglxIV8DxNks3OrdqMl3TC5ivC1MfuyYE941gDgpe8x7Dzh3ocelicHHuhmDc30rfnBVorgqzPVRR2euzRELgDi902bEcMeDKxCP9ZN53IgYGZNidS2ob90XFBC3sWJZikpEoJ71oRj9AI2qRmwm1KRn5D90V8Syfnm1U464OA8mRWxeh1hWNLEwSxp+/MCZ7n+dFcuC4ZbeDKujcx6bVfxcHmVxk3v+uyJGLcw4Q+wX4/9tViyTg5jYkpjdmFPvtLsOMcp8jylmf9u1zmx4tOcJ097b3Iff14qRetEbZ4j3RRd3G2Ll2KXGZML9WCnqcb16V/piY5ICcScmLdU0d7UyFS+HVlnD202feUdckYoVm/wlYPvrENPsqyVilxRfv9sQS+v0Ti0j/T/TqjcXr0MM9BIfIH6mpmrBO1+/KDNCq1eR2IS4Yy6GdX0cs8vaIpaVlojL91tAXJnYfAaxrGcWExKUOkd4q2uJ9RWIZZQGMsvcGSRdN2eOjKqj8DInctBVuptFLn2WfdpCryIWnUIzKWvZnCY/tUUskEsBL0VcNtdCuKvsPSU0IqZpuGmlpquPU+vZqdX24VWIFXaflkXDVQrS6oiDihnnVhwb1YwOz9kmAaY4qfpiS9TodMiyip/dEjHCl5ofKeJypXPEe4NUNGP+to5YFsgutdw1QQrK3u/aW30NYqRnK2B20HgwmBmblrlQywEvQwwxrVqCMrdittPCgof43Ge3RgzBtg3iXblumaMwd5Oq3s0GK8b9NLRYdCuI1Iwt8b163VVWnGVjLOdKSELQE5flfDtFbEJalN94VoKiJpKEuqMw6joNqrX2xYLeCvGiHJYyxLxNNjoNiI0EviWGtEpyIDI6lrivmPE1iLNrO67K4kDqjcUhabDirEhU7+CRa0lb7NY0OsrXhjuIQWdb5BniSqdOjrhRNcTKPnENpsUqmZmxCaG87IyvQay63eRa2hUjozysdcuveA2xfOxXNVBqTQ+LY0Cn96O1FSPpwhT6BPF/v4hYRmSR3mb6tGSU0IG3uhwxWyNGCG/YY7M6OyN5843MjEOp2G9cQ6zXF8xNcld4rukBiK/OKATpwlKQDDHfUbRFjCD0Z0acWhgZ8t/qKxAnvgeMLcIJ4tyMY72YqNQRT7pVdqu2iLPLWoc7QbqwOO8+ViwQX6QrX3MjRuCNu0nXTLccm9o7CrxPA+jOSIcGmDemaTJAP2vFE7PSKySuankxH3Fe19aIUVvEJUu73lHgJLiZlp7HFyPNjSuFt7didZGlEyQrU9cS6uZuVnhuHMQ1dqsc1Alxre/IFP/3MEexbkDM+QEeYiSFaevW3UxzZc2PWL8JsbJMcFqifSpzk3Kh3f15qXXEpw56sxmxaFXVsYKrkzbIKC4slU4QH/i+WIw0r6IscSggRpAavmW3Un8aLB84QW6JGCHykffhcMqcqIWHUcsonEWWx8eNiEVP56R2J3JtESPSKmlz+U0PaEArZWGD04BGeCo294h3RNcoPMCWiGVZOeesTNFTmq0YyVlPxWyb1IyHmNO6K7xuV1hxtw1iEXMdBe2jKIvXRyEjY3eGRrpLTB0xOWNDcF14BrHFuvuzy0+IdSTk22axPgc8T79VD3c8xLJQ6waCYMup5wmX3LIBXelZaexp43Zmouw+GhEXB/FyxKta82BevGc9Pj+SIQZyDfFqVnnpFOmEOCs4R7ysOwq63BiVEVtxrZ79Y2HCBrrYYZwiXjd1ZlYfM6+nLes2b2pum0WDyRCbnFhaqDmeNpaZ9TZJVcQQO5ZaWct1cjkP8bg+JeBfNqq07kxeGzAsYiGXNgbJu+RvR5wN2ZnxyN2V5Gadbx+nAbcMMY3fJbO0Ot1TB4EwGyVfNV23XKg7Yj9odqw8C4LcIy2Bc4NpDfwa4pajHuw0kcoLFBZdGr5AOB9Y8m4fWILQn1w9nallkVmaaYhCDXFdpliYiZO94JP/VMpUZ2PRZK0cO3/zLg2Psv7mG8fueBfZuPS6tUT8oddHoFshRnKQ9FuasVo9hINOM6F3bxUS72bEndxRyLLK2memRfPf6skeWajf5VUgE7Hejigihty83tN2F8SIXJzXdhrkr49AtxvkT4fsLNo3U7kayYqVjITEueMExA0JnpkjRumYstmpDSLRhHnBgFpiP62djLfnksbKjRj3RIzwX5cIF6aqFAKefi6jYKPMRcRxsju2VZ/xiGQyTMNN/lafcRQnX6z76WOb1pJneGxJ84fOP0mTJznrc+IWa4rdfqGYllastEOsXjFVpVuYcAVNwi4VOP8aYiv5Vo4Y2+m1Q8KZVQoVTb6bJ/DnZtplHUbyMfsptVYi3Qxskn57kE9AU6fN0xniD6f4fp2f05aFO1k5Nl9k5+/kVROuIJc/9TLhJHNXask52FDyrdy85SAdWmyYMpl+Nx88FwKtScvcV2XDlQ37yubjmqcmAFaPTaXqeqlquP+vZtlZXIYbrSaAJ522mrpu2qC4P2ETsjOkqp5Qzg49EuTKtQ1LyfJDkvIvCNXmwUk5YSGvAH+burzQvMYo3aKbo+oU7ubZxXQy8anE5nrmz0G6OE+ljPiNcG3mpSYhJbjQPVFFLH68FpdfJ+O9BeHycpqN9FrV2FqIzvK4GrGovfb5aC0kcRb0X0YcC68l5m2FvXaEawt0pbsf9PcrBVlr0PYAheoy85H+suMWAsKtt+mubZbQI9+xq/4fJSRfQ5i35UfTPvYvpUJCbauE6xCL7mv/sAuStGsOsuFtvxQvf8WOuY+STLZXAG7aRGz7auc1SiZtVuVeRCyG7DCtlylXRbcybrsn9wXE4kTBf87u5U+UtLz6CMLmbUkHL2dRk2xcHAy9ArEoDslrG5uiIBvGtxymcnaLaI+zM8E/VQhMuH/ToYOXNjrHctNZVL8xr5P5++IwAFJw43lAF7brj/uqwv/Y9DzKXyS6+w3v0Imkxaxfmaq1RgyphUb4JAPN+x2HeqRCClZ4h04IbOrM/PazjFscneIrdEy7/niV5SZy2BHAf3oCTV9ILGnRp8OZDwsizlfODGt1ABA9wopDUcFBNIyQ/qfbMvDVnXA8VXgbQsmyLlx1ytJtiEXL1nF9azaZHmM1PywigR2U+cd1gbLd3ZAiEcf+94fHO0wVwh+RaxvePQQxxD2bUGOtm6tCjuGuZx9VSfnzwp+sSMYydN9thXB7cOHL7YZA74GYnniHuaszZAUbe9/arfeqTneX/kOa3cx8pbn/Fo+XqsTrLECKfvyqBV+HGCCPwSOU91cU2MGNsqLr/YVoLaLAkHB59s/PU3JAtG449qTb9Qfs9at6ObpMhCyv7fD5OmLQYW/wzn8W6GHgQNkS449NwI53fQqtWwTOgajO9BCLsT83Gg7RlTHZXp5z+RDEojia6pLC6+ikx1TDixeL4u5jCpiTsWxZ+AlxECVz7+hBmERdRoBXdMd7XeeHF3DB2L6wmO6RiKm/WPIP0gVhydiHdN7428IeKIwzf+rfcwWBmNI1gnm4oqNuPXtpcE8bpR5YIvv7eIjbEdMqTnFDN5xMTwMXNv4bXNV1/ciTSHJg/DdGQQVLOkFz+8As0x1v6VG/Dc8dE2Tf3pDj6jbEgO8wJ9QVVGtKj2+hLXojeR3B5t1DuHUMIkls51r0pNMA0nUhGOuquvwMFy6bQ7mjkYI2++vzeum2xpjom/uc/VzUrYhB8dAjzZOHIGZDUPFTi7AmH/bWYRaNHziH4LRmF4PlqtKyH/qjtAdy5G8CmlbyKwwZhC7ND20ms16rLyAG7daMMrfO4IIVTAy0Xa+ybtZ4tBhP5wEBH01R399JU7OVJN3QnW3kr3b55y7CuWLQk36bpuFgnbBI/Qh9DbFIbXkg6WfG+SDMQAq6WRdORzbdiR9O50ukq4QksJNLrxmRpd6dzdlHcgKWEFUKtG20PhQPYo5XYT9Jb/i1Q7SHTcefh5t621vpy4hB1gGi39mNyyHgEHLchge3dCfxaHIYh1FfCzA9ZDzZXZ1uNw6i6IRSSpWtu1PYTuVsd0BCDEPFzl/9KPQXk1258J5vzwMIAvjM2wIGoArR6hH+Idc9EFP1Qo/oSUCrGxztb5ERC+yGsw2Hk7faUlrrbdfrLYbr0I4228FeWzrHAFqwkn6SpCN0PDpLbz/YbiI7XH+seqPdWw2PFa/GKVy65p7vGuTEj0mD9Z3zh7ruhVikHm/q0ASt0WRSgwa/pyra1h6v3t/SHzXpGrdagXSN21uumC2hq4gt+cv+8fa+GkeDpaQmcM8JfAshmj15nHs46Y6IqdzD1CFnMbN8SWbnIsBbLi0Hm3B86I3i0s2agI7+Kq8JTbbuZVtgnmTtwNus7c1fjm4ww1XkS+fXg/MlWrR4UHSr6c6IqeJD5OkkaW80DPud/lJYegXJqxQs9/2pHY79BX3/d7Fl1T2kaVnxbvc+WS38dRhNt54jgM3qLBVUTkU3NIqgMjQo4H24eIb1ZnoAYiprsv4UaBbcdkpR0k7ASQwDlw1hjO66ogQgx3HoXywfU1lcJHoWF1HTAHnlmSLEQq6zGb8/NLZx9CDETJAwbRGh9kxBs6B3DjI9CYblEUnympwNQ3OL5Dcq2H5SXvXcmSrXPBVU4LlJQf+UoD9Vj0TMFC/WUw0noJO7flZnBeVP93Yj2IvGTwlsfD0ccSJ3FU41WWc9FY8ffqITIqhXIYIXrSf365a8TU9CnGjXG4ZbjW7wJSU56x3732RWmMIyFUJkbxP6vbfLVXqCnoo41Zt7GNtbLwD3oWftZ5S35NpCT1vb1CUngRIeHTT0PsPhyn1WPtZK34E4kxX3Dn+vo+3cwQRT0ybpYV+Kwgb/0oB22hcBsW3YlPSoL4lRJVhXlvPPaPz3ohd/n8M9o+9EXJAVu73FgSa7m8/tAJrPQUaxcFpBwj+AJvR8+wkp9No/rKDN8iO5FvRDENfVTQ5KOe1GbtHGMq898tP1YxH/Hr0QP1wvxA/XC/HD9UL8cL0QP1wvxA/X/wEGUfU31209cQAAAABJRU5ErkJggg==">
+                    </div>
+                    <div>
+                        <h1 class="text-2xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">Production Data Entry</h1>
+                        <p class="text-sm text-gray-600">Manufacturing Operations Management</p>
+                    </div>
+                </div>
+                <a href="index.html" class="px-6 py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-all">
+                    View Dashboard
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <div class="max-w-4xl mx-auto px-6">
+        <div class="glass-effect rounded-2xl shadow-2xl p-8">
+            <form id="dataForm" class="space-y-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Production Type</label>
+                        <select id="productionType" name="productionType" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500">
+                            <option value="healthcare">Healthcare</option>
+                            <option value="toothpaste">Toothpaste</option>
+                        </select>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Date</label>
+                        <input type="date" id="date" name="date" required 
+                               class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500">
+                    </div>
+                </div>
+
+                <!-- Stats Section -->
+                <div class="bg-gray-50 p-6 rounded-xl">
+                    <h3 class="text-lg font-semibold text-gray-800 mb-4">Production Statistics</h3>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Total Production</label>
+                            <input type="number" name="totalProduction" required 
+                                   class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Active Lines</label>
+                            <input type="number" name="activeLines" required 
+                                   class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Efficiency (%)</label>
+                            <input type="number" name="efficiency" required min="0" max="100"
+                                   class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Week Production</label>
+                            <input type="number" name="weekProduction" required 
+                                   class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Manpower Section -->
+                <div class="bg-gradient-to-r from-indigo-50 to-purple-50 p-6 rounded-xl border border-indigo-100">
+                    <h3 class="text-lg font-semibold text-gray-800 mb-4">Manpower Allocation</h3>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Total Manpower</label>
+                            <input type="number" name="totalManpower" required 
+                                   class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500"
+                                   placeholder="48">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Operators</label>
+                            <input type="number" name="operators" required 
+                                   class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500"
+                                   placeholder="32">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Team Leader</label>
+                            <input type="number" name="Team Leader" required 
+                                   class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500"
+                                   placeholder="8">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Technicians</label>
+                            <input type="number" name="technicians" required 
+                                   class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500"
+                                   placeholder="8">
+                        </div>
+                    </div>
+                    <div class="mt-4 p-3 bg-blue-50 rounded-lg">
+                        <p class="text-sm text-blue-700" id="manpowerSummary">
+                            Manpower summary will appear here...
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Weekly Schedule Section -->
+                <div class="bg-gray-50 p-6 rounded-xl">
+                    <h3 class="text-lg font-semibold text-gray-800 mb-4">Weekly Schedule Data</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Activity Name</label>
+                            <input type="text" name="activityName" 
+                                   class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500"
+                                   placeholder="e.g., VITAMIN C TABLETS">
+                        </div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Planned Data (comma separated)</label>
+                                <textarea name="plannedData" rows="3" 
+                                          class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500"
+                                          placeholder="500mg&#10;100kg,500mg&#10;100kg,..."></textarea>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Actual Data (comma separated)</label>
+                                <textarea name="actualData" rows="3" 
+                                          class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500"
+                                          placeholder="95kg&#10;480pcs,98kg&#10;490pcs,..."></textarea>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Defect Data (comma separated)</label>
+                                <textarea name="defectData" rows="3" 
+                                          class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500"
+                                          placeholder="5,3,2,8,4,0,0,22"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Daily Operations Section -->
+                <div class="bg-gray-50 p-6 rounded-xl">
+                    <h3 class="text-lg font-semibold text-gray-800 mb-4">Daily Operations Data</h3>
+                    <div class="space-y-4">
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Day</label>
+                                <select name="day" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500">
+                                    <option value="SUNDAY">Sunday</option>
+                                    <option value="MONDAY">Monday</option>
+                                    <option value="TUESDAY">Tuesday</option>
+                                    <option value="WEDNESDAY">Wednesday</option>
+                                    <option value="THURSDAY">Thursday</option>
+                                    <option value="FRIDAY">Friday</option>
+                                    <option value="SATURDAY">Saturday</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Operations Data (comma separated, 16 values)</label>
+                            <textarea name="operationsData" rows="3" required
+                                      class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500"
+                                      placeholder="Vitamin C, Vitamin C, B001, 95kg, Vitamin C, Vitamin C, E001, 480, ..."></textarea>
+                            <p class="text-xs text-gray-500 mt-1">Enter 16 comma-separated values for all operation columns</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex space-x-4 pt-6">
+                    <button type="submit" 
+                            class="flex-1 bg-gradient-to-r from-indigo-600 to-purple-600 text-white py-4 rounded-lg font-semibold hover:shadow-lg transition-all">
+                        Submit Production Data
+                    </button>
+                    <button type="button" onclick="clearForm()" 
+                            class="px-6 py-4 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-all">
+                        Clear Form
+                    </button>
+                </div>
+            </form>
+
+            <div id="message" class="mt-4 hidden p-4 rounded-lg"></div>
+        </div>
+    </div>
+
+    <script>
+        const GOOGLE_SHEET_URL = 'https://script.google.com/macros/s/AKfycbwbT8TRM9uzAWYowcjaZSbtSPMhYhmrFT98Pu_WfTLBdIu3aB8KTJpVwrOHru4RBq90XA/exec';
+
+        function updateManpowerSummary() {
+            const total = parseInt(document.querySelector('input[name="totalManpower"]').value) || 0;
+            const operators = parseInt(document.querySelector('input[name="operators"]').value) || 0;
+            const supervisors = parseInt(document.querySelector('input[name="supervisors"]').value) || 0;
+            const technicians = parseInt(document.querySelector('input[name="technicians"]').value) || 0;
+            
+            const calculatedTotal = operators + supervisors + technicians;
+            const isValid = calculatedTotal === total;
+            
+            let summary = `Total: ${total} | Operators: ${operators} (${Math.round((operators/total)*100)}%) | Supervisors: ${supervisors} (${Math.round((supervisors/total)*100)}%) | Technicians: ${technicians} (${Math.round((technicians/total)*100)}%)`;
+            
+            if (!isValid && total > 0) {
+                summary += ` ⚠️ Sum mismatch: ${calculatedTotal} vs ${total}`;
+            }
+            
+            document.getElementById('manpowerSummary').textContent = summary;
+        }
+
+        document.querySelectorAll('input[name="totalManpower"], input[name="operators"], input[name="supervisors"], input[name="technicians"]').forEach(input => {
+            input.addEventListener('input', updateManpowerSummary);
+        });
+
+        document.getElementById('dataForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            const data = {
+                productionType: formData.get('productionType'),
+                date: formData.get('date'),
+                stats: {
+                    totalProduction: parseInt(formData.get('totalProduction')),
+                    activeLines: parseInt(formData.get('activeLines')),
+                    efficiency: formData.get('efficiency') + '%',
+                    weekProduction: parseInt(formData.get('weekProduction'))
+                },
+                manpower: {
+                    total: parseInt(formData.get('totalManpower')),
+                    operators: parseInt(formData.get('operators')),
+                    supervisors: parseInt(formData.get('supervisors')),
+                    technicians: parseInt(formData.get('technicians')),
+                    date: formData.get('date')
+                },
+                weekly: [{
+                    activity: formData.get('activityName'),
+                    shifts: [
+                        {
+                            type: 'Planned',
+                            data: formData.get('plannedData').split(',')
+                        },
+                        {
+                            type: 'Actual',
+                            data: formData.get('actualData').split(',')
+                        },
+                        {
+                            type: 'Defect',
+                            data: formData.get('defectData').split(',')
+                        }
+                    ]
+                }],
+                daily: [{
+                    date: formData.get('date'),
+                    day: formData.get('day'),
+                    data: formData.get('operationsData').split(',').map(item => item.trim())
+                }]
+            };
+
+            fetch(GOOGLE_SHEET_URL, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => response.json())
+            .then(result => {
+                showMessage('Data submitted successfully!', 'success');
+                clearForm();
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                showMessage('Error submitting data. Please try again.', 'error');
+            });
+        });
+
+        function clearForm() {
+            document.getElementById('dataForm').reset();
+            document.getElementById('date').valueAsDate = new Date();
+            updateManpowerSummary();
+        }
+
+        function showMessage(text, type) {
+            const messageDiv = document.getElementById('message');
+            messageDiv.textContent = text;
+            messageDiv.className = `mt-4 p-4 rounded-lg ${type === 'success' ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'}`;
+            messageDiv.classList.remove('hidden');
+            
+            setTimeout(() => {
+                messageDiv.classList.add('hidden');
+            }, 5000);
+        }
+
+        document.getElementById('date').valueAsDate = new Date();
+        updateManpowerSummary();
+    </script>
+</body>
+</html>
