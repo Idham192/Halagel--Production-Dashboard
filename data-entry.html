@@ -3,9 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Halagel Production Data Entry</title>
+    <title>Production Data Entry</title>
     <!-- Fixed Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        // Suppress Tailwind warnings
+        tailwind.config = {
+            corePlugins: {
+                preflight: false,
+            }
+        }
+    </script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         body {
@@ -255,7 +263,6 @@
 
     <script>
         // ⚠️ REPLACE THIS WITH YOUR ACTUAL GOOGLE APPS SCRIPT WEB APP URL ⚠️
-        // Get this from: Deploy → New deployment → Web app → Copy the URL
         const GOOGLE_SHEET_URL = 'https://script.google.com/macros/s/AKfycbyKaosUANGLPVAclh0_lHVV5FrQUJKjYK2LJ_6X3MYVu12Cs_84VN0bLy0TzG_KMmg/exec';
 
         // Debug logging function
@@ -306,15 +313,15 @@
             submitBtn.disabled = true;
 
             try {
-                debugLog(`Sending GET request to: ${GOOGLE_SHEET_URL}?type=healthcare`, 'info');
-                const response = await fetch(`${GOOGLE_SHEET_URL}?type=healthcare`);
+                const timestamp = new Date().getTime();
+                debugLog(`Sending GET request to: ${GOOGLE_SHEET_URL}?action=test&_=${timestamp}`, 'info');
+                const response = await fetch(`${GOOGLE_SHEET_URL}?action=test&_=${timestamp}`);
                 debugLog(`Response status: ${response.status} ${response.statusText}`, 'info');
                 
                 if (response.ok) {
                     const data = await response.json();
                     debugLog('✅ Connection successful! Google Apps Script is responding.', 'success');
-                    debugLog(`Response data type: ${typeof data}`, 'info');
-                    debugLog(`Sample data received: ${JSON.stringify(data).substring(0, 150)}...`, 'info');
+                    debugLog(`Response: ${JSON.stringify(data)}`, 'info');
                 } else {
                     debugLog(`❌ Connection failed: HTTP ${response.status}`, 'error');
                     debugLog('Check if your Google Apps Script is deployed correctly.', 'error');
